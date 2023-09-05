@@ -23,8 +23,6 @@ const Navbar = (props) => {
   }
 
 
-
-
   const isCurrentPage = (pathname) => location.pathname === pathname;
 
   const toggleDrawer = () => {
@@ -111,7 +109,7 @@ const Navbar = (props) => {
           </ListItemIcon>
           <ListItemText primary="Teacher List" />
         </ListItem>
-        <ListItem
+        {/* <ListItem
           button
           component={Link}
           to="/admin/add-teacher"
@@ -121,7 +119,7 @@ const Navbar = (props) => {
             <PersonIcon />
           </ListItemIcon>
           <ListItemText primary="Add Teacher" />
-        </ListItem>
+        </ListItem> */}
         <ListItem
           button
           component={Link}
@@ -133,7 +131,7 @@ const Navbar = (props) => {
           </ListItemIcon>
           <ListItemText primary="Student List" />
         </ListItem>
-        <ListItem
+        {/* <ListItem
           button
           component={Link}
           to="/admin/add-student"
@@ -143,7 +141,7 @@ const Navbar = (props) => {
             <AddBoxIcon />
           </ListItemIcon>
           <ListItemText primary="Add Student" />
-        </ListItem>
+        </ListItem> */}
       </>
     );
   };

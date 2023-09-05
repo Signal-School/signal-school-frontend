@@ -13,7 +13,7 @@ import StudentDetail from './pages/StudentDetail';
 import theme from './theme';
 import School from './pages/School';
 import TeacherList from './components/Admin/TeacherList';
-
+import StudentList from './components/Admin/StudentList';
 
 
 
@@ -38,7 +38,6 @@ const App = () => {
   }
 
 
-
   useEffect(() => {
     const schoolData = JSON.parse(localStorage.getItem('schoolData'));
     if (schoolData) {
@@ -54,7 +53,6 @@ const App = () => {
         showNav && <Navbar schoolName={schoolName} schoolLocation={schoolLocation} />
       }
 
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin/login" element={<AdminLogin />} />
@@ -62,6 +60,7 @@ const App = () => {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/school" element={<School />} />
         <Route path="/admin/teacher-list" element={<TeacherList />} />
+        <Route path="/admin/student-list" element={<StudentList />} />
         {/* <PrivateRoute path="/admin/dashboard" element={<AdminDashboard />} />
           <PrivateRoute path="/teacher/dashboard" element={<TeacherDashboard />} />
           <PrivateRoute path="/teacher/:id" element={<TeacherDetail />} />
