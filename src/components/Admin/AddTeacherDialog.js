@@ -9,11 +9,13 @@ import {
   Grid,
 } from '@mui/material';
 
+
 const AddTeacherDialog = ({ open, handleClose, handleAddTeacher }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
+
 
   const handleAddClick = () => {
     // Create a new teacher object
@@ -33,6 +35,7 @@ const AddTeacherDialog = ({ open, handleClose, handleAddTeacher }) => {
     setPassword('');
   };
 
+
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
       <DialogTitle>Add Teacher</DialogTitle>
@@ -44,6 +47,7 @@ const AddTeacherDialog = ({ open, handleClose, handleAddTeacher }) => {
               fullWidth
               value={name}
               onChange={(e) => setName(e.target.value)}
+              style={{marginTop:"0.5rem"}}
             />
           </Grid>
           <Grid item xs={12}>
@@ -52,6 +56,7 @@ const AddTeacherDialog = ({ open, handleClose, handleAddTeacher }) => {
               fullWidth
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              style={{marginTop:"0.6rem"}}
             />
           </Grid>
           <Grid item xs={12}>
@@ -60,6 +65,7 @@ const AddTeacherDialog = ({ open, handleClose, handleAddTeacher }) => {
               fullWidth
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
+              style={{marginTop:"0.6rem"}}
             />
           </Grid>
           <Grid item xs={12}>
@@ -69,6 +75,7 @@ const AddTeacherDialog = ({ open, handleClose, handleAddTeacher }) => {
               fullWidth
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              style={{marginTop:"0.6rem"}}
             />
           </Grid>
         </Grid>
@@ -81,4 +88,7 @@ const AddTeacherDialog = ({ open, handleClose, handleAddTeacher }) => {
   );
 };
 
+
 export default AddTeacherDialog;
+
+
