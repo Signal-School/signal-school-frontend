@@ -27,13 +27,14 @@ const TeacherLogin = () => {
   const handleLogin = async () => {
     try {
       const response = await apiService.auth.login('teacher', username, password);
-      const { message, token } = response.data;
+      const { message, token, user } = response.data;
       setSnackbarMessage(message);
       setSnackbarSeverity('success');
       setSnackbarOpen(true);
       localStorage.setItem('token', token);
       localStorage.setItem('userType', 'teacher');
       localStorage.setItem('email', username);
+      localStorage.setItem('User', JSON.stringify(user));
       navigate('/teacher/dashboard');
     } catch (error) {
       const errorMessage = error.response && error.response.data ? error.response.data.message : 'An error occurred.';

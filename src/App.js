@@ -14,6 +14,7 @@ import theme from './theme';
 import School from './pages/School';
 import TeacherList from './components/Admin/TeacherList';
 import StudentList from './components/Admin/StudentList';
+import StudentsList from './components/Teacher/StudentsList';
 
 
 
@@ -57,6 +58,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/teacher/login" element={<TeacherLogin />} />
+        <Route path="/teacher/student-list" element={<StudentsList />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/school" element={<School />} />
         <Route path="/admin/teacher-list" element={<TeacherList />} />

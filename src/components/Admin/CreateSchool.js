@@ -57,7 +57,7 @@ const CreateSchool = () => {
   };
 
   return (
-    <div>
+    <div style={{padding:'1rem'}}>
       <Typography variant="h5" gutterBottom>
         Create School
       </Typography>

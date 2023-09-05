@@ -24,7 +24,7 @@ const AddStudentDialog = ({ open, handleClose, handleAddTeacher }) => {
     };
     // Call the handleAddStudent function passed as a prop
     // to add the new student
-    handleAddStudent(newStudent);
+    // handleAddStudent(newStudent);
     // Reset the form fields
     setName('');
     setAge('');

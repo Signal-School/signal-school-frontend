@@ -58,7 +58,7 @@ const Navbar = (props) => {
           </ListItemIcon>
           <ListItemText primary="Student List" />
         </ListItem>
-        <ListItem
+        {/* <ListItem
           button
           component={Link}
           to="/teacher/add-student"
@@ -68,7 +68,7 @@ const Navbar = (props) => {
             <AddBoxIcon />
           </ListItemIcon>
           <ListItemText primary="Add Student" />
-        </ListItem>
+        </ListItem> */}
       </>
     );
   };

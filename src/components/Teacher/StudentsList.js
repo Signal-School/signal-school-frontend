@@ -19,15 +19,15 @@ import {
   TableRow
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import AddStudentDialog from './AddStudentDialog'; 
+import AddStudentForm from './AddStudentForm'; 
 import axios from 'axios';
 
 const StudentsList = () => {
   const [students, setStudents] = useState([]);
   const [openAddDialog, setOpenAddDialog] = useState(false);
   const token = localStorage.getItem('token');
-  const schoolData = JSON.parse(localStorage.getItem('schoolData'));
-  const schoolId = schoolData._id;
+  const user = JSON.parse(localStorage.getItem('User'));
+  const schoolId = user._id;
   const theme = useTheme();
 
   const config = {
@@ -137,7 +137,7 @@ const StudentsList = () => {
           </Paper>
         </Grid>
       </Grid>
-      <AddStudentDialog open={openAddDialog} handleClose={() => setOpenAddDialog(false)} handleAddStudent={handleAddStudent} />
+      <AddStudentForm open={openAddDialog} handleClose={() => setOpenAddDialog(false)} handleAddStudent={handleAddStudent} />
     </div>
   );
 };
