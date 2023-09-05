@@ -45,7 +45,7 @@ const SchoolList = () => {
  
 
   return (
-    <div>
+    <div style={{padding:'1rem'}}>
       <Typography variant="h5" gutterBottom>
         School List
       </Typography>
