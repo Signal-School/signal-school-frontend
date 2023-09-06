@@ -63,6 +63,7 @@ const App = () => {
         <Route path="/admin/school" element={<School />} />
         <Route path="/admin/teacher-list" element={<TeacherList />} />
         <Route path="/admin/student-list" element={<StudentList />} />
+        <Route path="/student/student-detail/:id" element={<StudentDetail />} />
         {/* <PrivateRoute path="/admin/dashboard" element={<AdminDashboard />} />
           <PrivateRoute path="/teacher/dashboard" element={<TeacherDashboard />} />
           <PrivateRoute path="/teacher/:id" element={<TeacherDetail />} />

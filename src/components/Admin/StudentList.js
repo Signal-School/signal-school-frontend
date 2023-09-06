@@ -32,10 +32,6 @@ const StudentsList = () => {
   const schoolId = schoolData._id;
   const theme = useTheme();
 
-
-  
-
-
   // const handleAddStudent = (newStudent) => {
   //   // Add your logic here to send the new student data to the server
   //   // and update the students list accordingly
@@ -70,7 +66,7 @@ const StudentsList = () => {
       // Simulating API call delay with setTimeout
       setTimeout(() => {
         const mockStudentsData = [
-          { id: 1, name: 'Rohan S.',age: 10, class : '1st' },
+          { id: 1, name: 'Rohan S.',age: 10, class : '1st' }, 
           { id: 2, name: 'Aneeta K.',age: 8, class : '2nd' },
           // Add more students data as needed
         ];
