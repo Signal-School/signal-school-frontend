@@ -50,7 +50,7 @@ const Navbar = (props) => {
         <ListItem
           button
           component={Link}
-          to="/teacher/student-list"
+          to="/student/student-list"
           selected={isCurrentPage('/teacher/student-list')}
         >
           <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
@@ -123,7 +123,7 @@ const Navbar = (props) => {
         <ListItem
           button
           component={Link}
-          to="/admin/student-list"
+          to="/student/student-list"
           selected={isCurrentPage('/admin/student-list')}
         >
           <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>

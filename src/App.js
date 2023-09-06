@@ -59,11 +59,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/teacher/login" element={<TeacherLogin />} />
-        <Route path="/teacher/student-list" element={<StudentsList />} />
+        <Route path="/student/student-list" element={<StudentList />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/school" element={<School />} />
         <Route path="/admin/teacher-list" element={<TeacherList />} />
-        <Route path="/admin/student-list" element={<StudentList />} />
         <Route path="/student/student-detail/:id" element={<StudentDetail />} />
         {/* <PrivateRoute path="/admin/dashboard" element={<AdminDashboard />} />
           <PrivateRoute path="/teacher/dashboard" element={<TeacherDashboard />} />
