@@ -71,7 +71,7 @@ export default function ProfileButton({ preload }) {
         localStorage.removeItem('schoolData');
         window.location.href = '/';
       };
-
+      let screenWidth = window.innerWidth;
     return (
         <div>
             {
@@ -83,19 +83,20 @@ export default function ProfileButton({ preload }) {
                         aria-expanded={open ? 'true' : undefined}
                         disableElevation
                         onClick={handleClick}
-                        endIcon={<KeyboardArrowDownIcon />}
+                        endIcon={screenWidth > 600 && <KeyboardArrowDownIcon />}
                         style={{ color: "white", margin: "auto" }}
                         fullWidth
                         className="profile-button"
                     >
                         {preload ? <><Avatar src="/broken-image.jpg" /> <span style={{ marginLeft: "0.5rem", fontSize: "1rem" }}>N/A</span></> : <>
                             <img src={`https://avatar.oxro.io/avatar.svg?name=${adminData.name.toUpperCase()}&background=random`} alt="avatar" style={{ width: "2.5rem", marginRight: "0.5rem", borderRadius: "50%" }} />
-                            <span style={{
+                            {screenWidth > 600 && <span style={{
                                 textTransform: "lowercase", whiteSpace: "nowrap", width: "8rem", overflow: "hidden",
                                 textOverflow: "ellipsis"
                             }}>
                                 {adminData.name}
-                            </span>
+                            </span>}
+                            
                         </>
                         }
                     </Button>

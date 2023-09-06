@@ -15,6 +15,7 @@ import School from './pages/School';
 import TeacherList from './components/Admin/TeacherList';
 import StudentList from './components/Admin/StudentList';
 import StudentsList from './components/Teacher/StudentsList';
+import Logout from './Logout';
 
 
 
@@ -69,6 +70,9 @@ const App = () => {
           <PrivateRoute path="/teacher/:id" element={<TeacherDetail />} />
           <PrivateRoute path="/student/:id" element={<StudentDetail />} /> */}
         {/* Add more routes for other pages */}
+        <Route path='/logout' element={<Logout/>} />
+
+        <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
 
     </ThemeProvider>

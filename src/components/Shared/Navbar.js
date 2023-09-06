@@ -151,16 +151,7 @@ const Navbar = (props) => {
       <>
         {renderTeacherLinks()}
         {renderAdminLinks()}
-        <ListItem
-          button
-          component={Link}
-          to="/logout"
-        >
-          <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
-            <LogoutIcon />
-          </ListItemIcon>
-          <ListItemText primary="Logout" />
-        </ListItem>
+       
       </>
     );
   };
@@ -204,6 +195,7 @@ const Navbar = (props) => {
     return null;
   };
 
+
  
   useEffect(() => {
     const userRole = localStorage.getItem('userType');
@@ -219,7 +211,7 @@ const Navbar = (props) => {
 
 
   return (
-    <AppBar position="static" color="primary">
+    <AppBar position="static" color="primary" sx={{ padding: 0 }}>
       <Toolbar>
       <Drawer
           variant="temporary"
@@ -250,6 +242,18 @@ const Navbar = (props) => {
           <Divider />
           <List>
             {renderLinksBasedOnRole()}
+            {isLoggedIn && (
+               <ListItem
+               button
+               component={Link}
+               to="/logout"
+             >
+               <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
+                 <LogoutIcon />
+               </ListItemIcon>
+               <ListItemText primary="Logout" />
+             </ListItem>
+             )}
           </List>
         </Drawer>
         <IconButton
@@ -263,19 +267,7 @@ const Navbar = (props) => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: 2 }}>
           {schoolName} - {schoolLocation}
         </Typography>
-        <IconButton
-          component={Link}
-          to="/"
-          edge="end"
-          color="inherit"
-          aria-label="home"
-          sx={{ marginLeft: 2 }}
-        >
-          <HomeIcon />
-        </IconButton>
-        
-     <ProfileButton />
-
+         <ProfileButton /> 
       </Toolbar>
     </AppBar>
   );
