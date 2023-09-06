@@ -87,19 +87,20 @@ const StudentsList = () => {
   return (
     <div>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h5">Students List</Typography>
+        <Typography variant="h5" style={{padding:'1.5rem'}}>Students List</Typography>
         <Button
           variant="contained"
           color="primary"
           startIcon={<AddIcon />}
           onClick={() => setOpenAddDialog(true)}
+          sx={{margin:'1.5rem'}}
         >
           Add Student
         </Button>
       </Box>
-      <Grid container spacing={2}>
+      <Grid style={{paddingLeft:'1rem',paddingRight:'1rem'}} container spacing={2}>
         <Grid item xs={12}>
-          <Paper>
+          <Paper sx={{backgroundColor: theme.palette.primary.main}}>
             {/* <List>
               {students.map((student) => (
                 <React.Fragment key={student.id}>
