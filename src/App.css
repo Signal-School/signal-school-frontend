@@ -29,3 +29,10 @@
 .small {
   font-size: 0.75rem;
 }
+
+@media (max-width: 800px) {
+  .flex-container{
+    flex-direction: column;
+    justify-content: center;
+  }
+}

@@ -24,7 +24,7 @@ const StudentBasicDetails = ({ student }) => {
                 student.subjects.map((subject, index) => {
                     return (
                         <span key={index}
-                        style={{ backgroundColor: '#2B5035', color: '#FFFFFF', borderRadius: '10px', padding: '5px', margin: '5px', textAlign: 'center', display: 'inline-block' }}
+                        style={{ backgroundColor: '#2B5035', color: '#FFFFFF', borderRadius: '10px', padding: '0.25rem 0.5rem 0.1rem 0.5rem', margin: '5px', textAlign: 'center', display: 'inline-block' }}
                         >{subject}</span>
                     )
                 })
