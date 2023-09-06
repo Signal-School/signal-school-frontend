@@ -16,8 +16,8 @@ const AdminDashboard = () => {
 
     //  const teachersData = await getTeachersBySchool(); // Replace with your API call to get teachers by school
      // const studentsData = await getStudentsBySchool(); // Replace with your API call to get students by school
-     const teachersData = await axios.get(`${process.env.REACT_APP_API_URL}/api/teacher`, (schoolId, token));
-    const studentsData = await axios.get(`${process.env.REACT_APP_API_URL}/api/student`, (schoolId, token));
+     const teachersData = await axios.get(`${process.env.REACT_APP_API_URL}/api/teacher`, (schoolId));
+    const studentsData = await axios.get(`${process.env.REACT_APP_API_URL}/api/student`, (schoolId));
      console.log(teachersData);
       setTeachers(teachersData);
       setStudents(studentsData);
