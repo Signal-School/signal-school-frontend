@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Typography, Box, Button, TextField, Grid, Snackbar } from '@mui/material';
 import { Alert } from '@mui/material';
-import apiService from '../../services/api';
+import axios from 'axios';
 
 const CreateSchool = () => {
   const [schoolName, setSchoolName] = useState('');
@@ -28,7 +28,7 @@ const CreateSchool = () => {
     event.preventDefault();
 
     try {
-      const response = await apiService.school.addSchool({
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/school/add`,{
         name: schoolName,
         location: location,
         adminId: adminData._id,

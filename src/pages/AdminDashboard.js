@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, Grid, CircularProgress } from '@mui/material';
-import apiService from '../services/api';
+import axios from 'axios'
 
 const AdminDashboard = () => {
   const [teachers, setTeachers] = useState([]);
@@ -13,12 +13,11 @@ const AdminDashboard = () => {
       const adminData = JSON.parse(localStorage.getItem('adminData'));
       const schoolId = adminData.schoolId;
       const token = localStorage.getItem('token');
-      const {getTeachers, getStudentsBySchool} = apiService.teacher;
 
     //  const teachersData = await getTeachersBySchool(); // Replace with your API call to get teachers by school
      // const studentsData = await getStudentsBySchool(); // Replace with your API call to get students by school
-     const teachersData = await getTeachers(schoolId, token);
-        const studentsData = await getStudentsBySchool(schoolId, token);
+     const teachersData = await axios.get(`${process.env.REACT_APP_API_URL}/api/teacher`, (schoolId, token));
+    const studentsData = await axios.get(`${process.env.REACT_APP_API_URL}/api/student`, (schoolId, token));
      console.log(teachersData);
       setTeachers(teachersData);
       setStudents(studentsData);

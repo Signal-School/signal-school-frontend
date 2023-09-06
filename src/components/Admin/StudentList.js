@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
+import { Avatar } from "@mui/material";
 
 
 import {
@@ -17,7 +18,8 @@ import {
   TableCell,
   TableContainer,
   TableHead,
-  TableRow
+  TableRow,
+  ListItemAvatar
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import AddStudentDialog from './AddStudentDialog'; 
@@ -101,21 +103,86 @@ const StudentsList = () => {
       <Grid style={{paddingLeft:'1rem',paddingRight:'1rem'}} container spacing={2}>
         <Grid item xs={12}>
           <Paper sx={{backgroundColor: theme.palette.primary.main}}>
-            {/* <List>
+            <List>
+                  {/* <ListItem>             
+                    <ListItemText sx={{color: theme.palette.primary.contrastText}} align="left" primary="Avatar"/>
+                    <ListItemText sx={{color: theme.palette.primary.contrastText}} align="left" primary="ID" />
+                    <ListItemText sx={{color: theme.palette.primary.contrastText}} align="left" primary="Name" />
+                    <ListItemText sx={{color: theme.palette.primary.contrastText}} align="left" primary="Age"/>
+                    <ListItemText sx={{color: theme.palette.primary.contrastText}} align="left" primary="Class" />
+                  </ListItem> */}
               {students.map((student) => (
                 <React.Fragment key={student.id}>
                   <ListItem>
-                    <ListItemText primary={student.name} />
+                    <ListItemAvatar>
+                      <Avatar sx={{width: '60px', height: '60px', margin: 'auto' }}></Avatar>
+                    </ListItemAvatar>
+                    <ListItemText 
+                      primary="ID" 
+                      secondary={student.id} 
+                      primaryTypographyProps={{
+                        fontSize: 22,
+                        color: theme.palette.primary.darkGrey,
+                      }}
+                      secondaryTypographyProps={{
+                        fontSize: 15,
+                        color: 'green',
+                      }}
+                      align="center" 
+                    />
+                    <ListItemText 
+                      primary="Name"  
+                      secondary={student.name}
+                      primaryTypographyProps={{
+                        fontSize: 22,
+                        color: theme.palette.primary.darkGrey,
+                      }}
+                      secondaryTypographyProps={{
+                        fontSize: 15,
+                        color: 'green',
+                      }}
+                      align="center" 
+                    />
+                    <ListItemText 
+                      primary="Age"  
+                      secondary={student.age}
+                      primaryTypographyProps={{
+                        fontSize: 22,
+                        color: theme.palette.primary.darkGrey,
+                      }}
+                      secondaryTypographyProps={{
+                        fontSize: 15,
+                        color: 'green',
+                      }}
+                      align="center" 
+                    />
+                    <ListItemText 
+                      primary="Class" 
+                      secondary={student.class}
+                      primaryTypographyProps={{
+                        fontSize: 22,
+                        color: theme.palette.primary.darkGrey,
+                      }}
+                      secondaryTypographyProps={{
+                        fontSize: 15,
+                        color: 'green',
+                      }}
+                      align="center" 
+                    />
                   </ListItem>
                   <Divider />
                 </React.Fragment>
               ))}
-            </List> */}
-            <TableContainer component={Paper}>
+            </List>
+
+
+
+            {/* <TableContainer component={Paper} >
               <Table sx={{ minWidth: 650 ,backgroundColor: theme.palette.primary.main}} aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}}>Id</TableCell>
+                  <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}} align="left"></TableCell>
+                    <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}} align="left">ID</TableCell>
                     <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}} align="left">Name</TableCell>
                     <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}} align="left">Age</TableCell>
                     <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}} align="left">Class</TableCell>
@@ -127,17 +194,21 @@ const StudentsList = () => {
                       key={student.id}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                      <TableCell sx={{color: theme.palette.primary.contrastText}} component="th" scope="row">
-                        {student.id}
+                      <TableCell sx={{color: theme.palette.primary.contrastText}} component="th" scope="row" style={{width:"40px"}}>
+                        <Avatar sx={{width: '60px', height: '60px', margin: 'auto' }}></Avatar>
                       </TableCell>
+                      <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}} align="left">{student.id}</TableCell>
                       <TableCell sx={{color: theme.palette.primary.contrastText}} align="left">{student.name}</TableCell>
                       <TableCell sx={{color: theme.palette.primary.contrastText}} align="left">{student.age}</TableCell>
-                      <TableCell sx={{color: theme.palette.primary.contrastText}} align="left">{student.classs}</TableCell>
+                      <TableCell sx={{color: theme.palette.primary.contrastText}} align="left">{student.class}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
-            </TableContainer>
+            </TableContainer> */}
+
+
+
           </Paper>
         </Grid>
       </Grid>

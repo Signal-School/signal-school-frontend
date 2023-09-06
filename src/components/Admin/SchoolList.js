@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Typography, List, ListItem, ListItemText, Divider, Button } from '@mui/material';
-import apiService from '../../services/api';
 
 const SchoolList = () => {
   const [schools, setSchools] = useState([]);
@@ -18,10 +17,9 @@ const SchoolList = () => {
 
   
   const fetchSchools = async() => {
-    const { getSchools } = apiService.school;
     const adminData = JSON.parse(localStorage.getItem('adminData'));
     const data = {adminId: adminData._id};
-    const response = await getSchools(data);
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/school`,(data));
     console.log(response.data.schools);
     setSchools(response.data.schools);
     
@@ -29,7 +27,7 @@ const SchoolList = () => {
 
   const handleSwitchSchool = (school) => {
     setSelectedSchool(school);
-    apiService.school.changeSchool(adminData._id, school._id)
+    axios.post(`${process.env.REACT_APP_API_URL}/api/school/change`, (adminData._id, school._id))
     .then((response) => {
       console.log('Switched school:', response.data.school);
       localStorage.setItem('schoolData', JSON.stringify(response.data.school));
