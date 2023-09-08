@@ -41,6 +41,7 @@ const Navbar = (props) => {
           component={Link}
           to="/teacher/dashboard"
           selected={isCurrentPage('/teacher/dashboard')}
+          onClick={closeDrawer}
         >
           <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
             <HomeIcon />
@@ -52,6 +53,7 @@ const Navbar = (props) => {
           component={Link}
           to="/student/student-list"
           selected={isCurrentPage('/teacher/student-list')}
+          onClick={closeDrawer}
         >
           <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
             <GroupIcon />
@@ -81,6 +83,7 @@ const Navbar = (props) => {
           component={Link}
           to="/admin/dashboard"
           selected={isCurrentPage('/admin/dashboard')}
+          onClick={closeDrawer}
         >
           <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
             <HomeIcon />
@@ -92,6 +95,7 @@ const Navbar = (props) => {
           component={Link}
           to="/admin/school"
           selected={isCurrentPage('/admin/school')}
+          onClick={closeDrawer}
         >
           <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
             <SchoolIcon />
@@ -103,6 +107,7 @@ const Navbar = (props) => {
           component={Link}
           to="/admin/teacher-list"
           selected={isCurrentPage('/admin/teacher-list')}
+          onClick={closeDrawer}
         >
           <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
             <GroupIcon />
@@ -125,6 +130,7 @@ const Navbar = (props) => {
           component={Link}
           to="/student/student-list"
           selected={isCurrentPage('/admin/student-list')}
+          onClick={closeDrawer}
         >
           <ListItemIcon sx={{ color: theme.palette.primary.contrastText }}>
             <GroupIcon />
