@@ -13,7 +13,7 @@ import StudentDetail from './pages/StudentDetail';
 import theme from './theme';
 import School from './pages/School';
 import TeacherList from './components/Admin/TeacherList';
-import StudentList from './components/Admin/StudentList';
+import StudentList from './components/Student/StudentList';
 import StudentsList from './components/Teacher/StudentsList';
 import Logout from './Logout';
 import Subject from './pages/Subject';

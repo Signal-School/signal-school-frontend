@@ -13,7 +13,7 @@ const AcademicDetails = ({ academicData }) => {
     return (
         <div className="flex-container" style={{backgroundColor: '#F5E9BF',display:'flex',flexDirection:'row',flexWrap:'wrap'}} >
             {Object.keys(academicData[0]).map((subject, index) => (
-                <Card key={index} style={cardStyle} sx={{display:'flex',width: "200px",marginRight:'2rem'}}>
+                <Card key={subject} style={cardStyle} sx={{display:'flex',width: "200px",marginRight:'2rem'}}>
                     <CardContent>
                         <Typography variant="h6" component="h6" style={{ fontWeight: 'bold',fontSize:'1.75rem' }}>
                             {subject}

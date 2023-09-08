@@ -15,11 +15,17 @@ const SchoolList = () => {
     setSelectedSchool(schoolData && schoolData._id ? schoolData : null);
   }, []);
 
-  
+  const token = localStorage.getItem('token');
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   const fetchSchools = async() => {
     const adminData = JSON.parse(localStorage.getItem('adminData'));
     const data = {adminId: adminData._id};
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/school`,(data));
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/school`, data, config);
     console.log(response.data.schools);
     setSchools(response.data.schools);
     
@@ -27,7 +33,7 @@ const SchoolList = () => {
 
   const handleSwitchSchool = (school) => {
     setSelectedSchool(school);
-    axios.post(`${process.env.REACT_APP_API_URL}/api/school/change`, (adminData._id, school._id))
+    axios.post(`${process.env.REACT_APP_API_URL}/api/school/change`, {schoolId: school._id, adminId: adminData._id}, config)
     .then((response) => {
       console.log('Switched school:', response.data.school);
       localStorage.setItem('schoolData', JSON.stringify(response.data.school));
