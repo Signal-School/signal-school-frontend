@@ -54,7 +54,7 @@ const TeachersList = () => {
       })
 
 
-    
+
     // Close the Add Teacher dialog
     setOpenAddDialog(false);
   };
@@ -67,10 +67,22 @@ const TeachersList = () => {
       // Simulating API call delay with setTimeout
       setTimeout(() => {
         const mockTeachersData = [
-          { id: 1, name: 'John Doe' ,subject: 'Maths'},
-          { id: 2, name: 'Jane Smith',subject: 'English' },
-          { id: 3, name: 'Matt Damon' ,subject: 'Chemistry'},
-          { id: 4, name: 'Tom Cruise',subject: 'Physics' },
+          { id: 1, name: 'John Doe', subject: 'Maths' },
+          { id: 2, name: 'Jane Smith', subject: 'English' },
+          { id: 3, name: 'Matt Damon', subject: 'Chemistry' },
+          { id: 4, name: 'Tom Cruise', subject: 'Physics' },
+          { id: 1, name: 'John Doe', subject: 'Maths' },
+          { id: 2, name: 'Jane Smith', subject: 'English' },
+          { id: 3, name: 'Matt Damon', subject: 'Chemistry' },
+          { id: 4, name: 'Tom Cruise', subject: 'Physics' },
+          { id: 1, name: 'John Doe', subject: 'Maths' },
+          { id: 2, name: 'Jane Smith', subject: 'English' },
+          { id: 3, name: 'Matt Damon', subject: 'Chemistry' },
+          { id: 4, name: 'Tom Cruise', subject: 'Physics' },
+          { id: 1, name: 'John Doe', subject: 'Maths' },
+          { id: 2, name: 'Jane Smith', subject: 'English' },
+          { id: 3, name: 'Matt Damon', subject: 'Chemistry' },
+          { id: 4, name: 'Tom Cruise', subject: 'Physics' },
           // Add more teachers data as needed
         ];
         setTeachers(mockTeachersData);
@@ -81,50 +93,59 @@ const TeachersList = () => {
   }, []);
 
   function createData(id, name, subject) {
-  return { id, name, subject };
-}
+    return { id, name, subject };
+  }
   return (
     <div>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h5" style={{padding:'1.5rem'}}>Teachers List</Typography>
+        <Typography variant="h5" style={{ padding: '1.5rem' }}>Teachers List</Typography>
         <Button
           variant="contained"
           color="primary"
           startIcon={<AddIcon />}
           onClick={() => setOpenAddDialog(true)}
-          sx={{margin:'1.5rem'}}
+          sx={{ margin: '1.5rem' }}
         >
           Add Teacher
         </Button>
       </Box>
-      <Grid style={{paddingLeft:'1rem',paddingRight:'1rem'}} container spacing={2}>
+      <Grid style={{ width: '90%', margin: '0 auto', paddingLeft: '1rem', paddingRight: '1rem' }} container spacing={2}>
         <Grid item xs={12}>
-          <Paper sx={{backgroundColor: theme.palette.primary.main}}>
-          <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 ,backgroundColor: theme.palette.primary.main}} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}}>Id</TableCell>
-            <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}} align="left">Name</TableCell>
-            <TableCell sx={{color: theme.palette.primary.contrastText,fontWeight:'bold',fontSize:16}} align="left">Subject</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {teachers.map((teacher) => (
-            <TableRow
-              key={teacher.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell sx={{color: theme.palette.primary.contrastText}} component="th" scope="row">
-                {teacher.id}
-              </TableCell>
-              <TableCell sx={{color: theme.palette.primary.contrastText}} align="left">{teacher.name}</TableCell>
-              <TableCell sx={{color: theme.palette.primary.contrastText}} align="left">{teacher.subject}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          <Paper sx={{ backgroundColor: theme.palette.primary.main }}>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650, backgroundColor: theme.palette.primary.main}} aria-label="simple table">
+                <TableHead sx = {{backgroundColor: theme.palette.primary.main}}>
+                  <TableRow sx ={{ borderBottom: '5px solid #F5E9BF'}} >
+                    <TableCell sx={{ color: theme.palette.primary.contrastText, fontWeight: 'bold', fontSize: 18 }}>Id</TableCell>
+                    <TableCell sx={{ color: theme.palette.primary.contrastText, fontWeight: 'bold', fontSize: 18 }} align="left">Name</TableCell>
+                    <TableCell sx={{ color: theme.palette.primary.contrastText, fontWeight: 'bold', fontSize: 18 }} align="left">Subject</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {teachers.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={3} sx={{ color: theme.palette.primary.contrastText }}>No teachers found</TableCell>
+                    </TableRow>
+                  ) : (
+                    teachers.map((teacher) => (
+                      <TableRow
+                        key={teacher.id}
+                        sx={{ '&:last-child td, &:last-child th': { borderBottom: 0 } }}
+                      >
+                        <TableCell sx={{ color: theme.palette.primary.contrastText, fontSize: 16 }} component="th" scope="row">
+                          {teacher.id}
+                        </TableCell>
+                        <TableCell sx={{ color: theme.palette.primary.contrastText, fontSize: 16 }} align="left">{teacher.name}</TableCell>
+                        {/* Create spacing between the table cells */}
+                        
+                        <TableCell sx={{ color: theme.palette.primary.contrastText, fontSize: 16 }} align="left">{teacher.subject}</TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+
+              </Table>
+            </TableContainer>
 
             {/* <List>
               {teachers.map((teacher) => (
@@ -132,7 +153,7 @@ const TeachersList = () => {
                   <ListItem>
                     <ListItemText sx={{color: theme.palette.primary.contrastText}} primary={teacher.name} />
                   </ListItem>
-                  <Divider sx={{backgroundColor: theme.palette.primary.contrastText, marginBottom:'0rem'}} />
+                  <Divider sx={{backgroundColor: theme.palette.primary.contrastText, marginBottom:'1rem'}} />
                 </React.Fragment>
               ))}
             </List> */}
