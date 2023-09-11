@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Grid, CircularProgress } from '@mui/material';
-import axios from 'axios'
+import { Typography, Box, Grid, CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 const AdminDashboard = () => {
   const [teachers, setTeachers] = useState([]);
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch the list of teachers and students in the current school
+  // Sample data arrays (replace with your own dummy data)
+  const dummyTeachers = [
+    { id: 1, name: 'Teacher 1', email: 'teacher1@example.com' },
+    { id: 2, name: 'Teacher 2', email: 'teacher2@example.com' },
+  ];
+
+  const dummyStudents = [
+    { id: 1, name: 'Ram', class: 'Class A' },
+    { id: 2, name: 'Shyam', class: 'Class B' },
+  ];
+
+  // Simulate API call with a delay
   const fetchSchoolData = async () => {
     try {
-      const adminData = JSON.parse(localStorage.getItem('adminData'));
-      const schoolId = adminData.schoolId;
-      const token = localStorage.getItem('token');
+      // Simulate API delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    //  const teachersData = await getTeachersBySchool(); // Replace with your API call to get teachers by school
-     // const studentsData = await getStudentsBySchool(); // Replace with your API call to get students by school
-     const teachersData = await axios.get(`${process.env.REACT_APP_API_URL}/api/teacher`, (schoolId));
-    const studentsData = await axios.get(`${process.env.REACT_APP_API_URL}/api/student`, (schoolId));
-     console.log(teachersData);
-      setTeachers(teachersData);
-      setStudents(studentsData);
+      // Set dummy data
+      setTeachers(dummyTeachers);
+      setStudents(dummyStudents);
       setLoading(false);
     } catch (error) {
       console.log('Error fetching school data:', error);
@@ -51,22 +56,24 @@ const AdminDashboard = () => {
       {teachers.length === 0 ? (
         <Typography variant="body1">No teachers found in the current school.</Typography>
       ) : (
-        <Grid container spacing={2}>
-          {teachers.map((teacher) => (
-            <Grid item xs={12} sm={6} md={4} key={teacher.id}>
-              {/* Display teacher details */}
-              <Box p={2} border={1} borderRadius={4}>
-                <Typography variant="subtitle1" gutterBottom>
-                  {teacher.name}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {teacher.email}
-                </Typography>
-                {/* Add more teacher details as needed */}
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
+        <TableContainer component={Paper}>
+          <Table aria-label="teachers table" style={{backgroundColor: '#2B5035'}}>
+            <TableHead>
+              <TableRow>
+                <TableCell style={{color:'white'}}>Name</TableCell>
+                <TableCell style={{color:'white'}}>Email</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {teachers.map((teacher) => (
+                <TableRow key={teacher.id}>
+                  <TableCell style={{color:'white'}}>{teacher.name}</TableCell>
+                  <TableCell style={{color:'white'}}>{teacher.email}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
       <Typography variant="h5" component="h3" gutterBottom mt={4}>
         Students in Current School
@@ -74,22 +81,24 @@ const AdminDashboard = () => {
       {students.length === 0 ? (
         <Typography variant="body1">No students found in the current school.</Typography>
       ) : (
-        <Grid container spacing={2}>
-          {students.map((student) => (
-            <Grid item xs={12} sm={6} md={4} key={student.id}>
-              {/* Display student details */}
-              <Box p={2} border={1} borderRadius={4}>
-                <Typography variant="subtitle1" gutterBottom>
-                  {student.name}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {student.class}
-                </Typography>
-                {/* Add more student details as needed */}
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
+        <TableContainer component={Paper}>
+          <Table aria-label="students table" style={{backgroundColor: '#2B5035', color: 'white'}}>
+            <TableHead>
+              <TableRow>
+                <TableCell style={{color:'white'}}>Name</TableCell>
+                <TableCell style={{color:'white'}}>Class</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {students.map((student) => (
+                <TableRow key={student.id}>
+                  <TableCell style={{color:'white'}}>{student.name}</TableCell>
+                  <TableCell style={{color:'white'}}>{student.class}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
     </Box>
   );
