@@ -14,7 +14,6 @@ import theme from './theme';
 import School from './pages/School';
 import TeacherList from './components/Admin/TeacherList';
 import StudentList from './components/Student/StudentList';
-import StudentsList from './components/Teacher/StudentsList';
 import Logout from './Logout';
 import Subject from './pages/Subject';
 
@@ -60,6 +59,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/teacher/login" element={<TeacherLogin />} />
+        <Route path="/teacher/teacher-detail/:id" element={<TeacherDetail />} />
         <Route path="/student/student-list" element={<StudentList />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/school" element={<School />} />
