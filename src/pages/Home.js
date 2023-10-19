@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <Container maxWidth="md">
       <Box mt={4} mb={6} textAlign="center">
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h4" component="h1" gutterBottom style={{marginTop: '5rem'}}>
           Welcome to Signal School
         </Typography>
         <Typography variant="h6" component="p" color="textSecondary">

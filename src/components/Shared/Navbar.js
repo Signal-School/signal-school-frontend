@@ -18,7 +18,7 @@ const Navbar = (props) => {
   
   const checkUnauthLocation = (token) => {
     if (!token && location.pathname !== '/admin/login' && location.pathname !== '/teacher/login' && location.pathname !== '/') {
-      navigate('/');
+      // navigate('/');
     }
   }
 
@@ -217,7 +217,7 @@ const Navbar = (props) => {
 
 
   return (
-    <AppBar position="static" color="primary" sx={{ padding: 0 }}>
+    <AppBar position="fixed" color="primary" sx={{ padding: 0, top: 0, left: 0, right: 0, zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
       <Drawer
           variant="temporary"
